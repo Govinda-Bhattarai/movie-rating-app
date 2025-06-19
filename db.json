@@ -1,0 +1,242 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "joinDate": "2023-01-15"
+    },
+    {
+      "id": "1",
+      "email": "john@example.com",
+      "password": "123456"
+    },
+    {
+      "id": "1",
+      "email": "test@example.com",
+      "password": "1234",
+      "name": "Test User"
+    },
+    {
+      "id": "62ea",
+      "name": "gb",
+      "email": "123@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": "64a5",
+      "name": "kj",
+      "email": "kj@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": "1ee7",
+      "name": "govinda",
+      "email": "gb@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "1750157215795",
+      "name": "govin",
+      "email": "govin@gmail.com",
+      "password": "123456",
+      "joinDate": "2025-06-17T10:46:55.795Z",
+      "avatar": null
+    },
+    {
+      "id": "1750307512215",
+      "name": "govinda",
+      "email": "govinda@gmail.com",
+      "password": "123456",
+      "joinDate": "2025-06-19T04:31:52.215Z",
+      "avatar": null
+    }
+  ],
+  "movies": [
+    {
+      "id": "tt18689424",
+      "title": "Superman Returns"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "movieId": "tt18689424",
+      "user": "John Doe",
+      "rating": 4,
+      "text": "Great movie!",
+      "date": "2025-06-01"
+    },
+    {
+      "id": 1750307693138,
+      "movieId": "tt0314524",
+      "userId": "1750307512215",
+      "user": "govinda",
+      "rating": 5,
+      "text": "nice",
+      "date": "2025-06-19T04:34:53.138Z"
+    },
+    {
+      "id": 1750308892341,
+      "movieId": "tt2778780",
+      "userId": "1750307512215",
+      "user": "govinda",
+      "rating": 5,
+      "text": "fabulous",
+      "date": "2025-06-19T04:54:52.341Z"
+    },
+    {
+      "id": 1750309049982,
+      "movieId": "tt0126169",
+      "userId": "1750307512215",
+      "user": "govinda",
+      "rating": 4,
+      "text": "great",
+      "date": "2025-06-19T04:57:29.982Z"
+    },
+    {
+      "id": 1750309833771,
+      "movieId": "tt2087951",
+      "userId": "1750307512215",
+      "user": "govinda",
+      "rating": 5,
+      "text": "i would love to watch this movie",
+      "date": "2025-06-19T05:10:33.771Z"
+    },
+    {
+      "id": 1750311007539,
+      "movieId": "tt15600222",
+      "userId": "1750307512215",
+      "user": "govinda",
+      "rating": 5,
+      "text": "awesome",
+      "date": "2025-06-19T05:30:07.539Z"
+    }
+  ],
+  "ratings": [
+    {
+      "id": "1750073095052",
+      "rating": 3,
+      "comment": "",
+      "date": "2025-06-16T11:24:55.052Z"
+    },
+    {
+      "id": "1750073113899",
+      "rating": 5,
+      "comment": "",
+      "date": "2025-06-16T11:25:13.899Z"
+    },
+    {
+      "id": "1750073150932",
+      "rating": 4,
+      "comment": "very good movie\n",
+      "date": "2025-06-16T11:25:50.932Z"
+    },
+    {
+      "id": "1750139136165",
+      "rating": 4,
+      "comment": "",
+      "date": "2025-06-17T05:45:36.165Z"
+    },
+    {
+      "id": "1",
+      "userId": 1,
+      "movieId": "tt1234567",
+      "rating": 8,
+      "movie": {
+        "imdbID": "tt1234567",
+        "Title": "Sample Movie",
+        "Poster": "..."
+      }
+    },
+    {
+      "id": "1750141987283",
+      "rating": 5,
+      "comment": "",
+      "date": "2025-06-17T06:33:07.283Z"
+    },
+    {
+      "id": "1750151479185",
+      "rating": 4,
+      "comment": "",
+      "date": "2025-06-17T09:11:19.185Z"
+    },
+    {
+      "id": "1750151756457",
+      "rating": 4,
+      "comment": "",
+      "date": "2025-06-17T09:15:56.457Z"
+    },
+    {
+      "id": "1750151767456",
+      "rating": 5,
+      "comment": "",
+      "date": "2025-06-17T09:16:07.456Z"
+    },
+    {
+      "id": 1750307693128,
+      "userId": "1750307512215",
+      "movieId": "tt0314524",
+      "rating": 5,
+      "date": "2025-06-19T04:34:53.128Z",
+      "movie": {
+        "imdbID": "tt0314524",
+        "Title": "Popular Music",
+        "Year": "2004",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BYWRjNGM2MGEtOTllMy00OWY2LTgxNjEtODI1ZDkxYzM3Nzc0XkEyXkFqcGc@._V1_SX300.jpg"
+      }
+    },
+    {
+      "id": 1750308892327,
+      "userId": "1750307512215",
+      "movieId": "tt2778780",
+      "rating": 5,
+      "date": "2025-06-19T04:54:52.327Z",
+      "movie": {
+        "imdbID": "tt2778780",
+        "Title": "The Most Popular Girls in School",
+        "Year": "2012–2017",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMjA0OTU3Mzc2MV5BMl5BanBnXkFtZTcwMTYyNzgyOQ@@._V1_SX300.jpg"
+      }
+    },
+    {
+      "id": 1750309049973,
+      "userId": "1750307512215",
+      "movieId": "tt0126169",
+      "rating": 4,
+      "date": "2025-06-19T04:57:29.973Z",
+      "movie": {
+        "imdbID": "tt0126169",
+        "Title": "Popular Mechanics for Kids",
+        "Year": "1997–2005",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BYTRkYmI1MjQtZmY2ZS00ZjU0LTlmYjItYjMwZTM1ZWFiMGJiXkEyXkFqcGdeQXVyMTUyNjc3NDQ4._V1_SX300.jpg"
+      }
+    },
+    {
+      "id": 1750309833756,
+      "userId": "1750307512215",
+      "movieId": "tt2087951",
+      "rating": 5,
+      "date": "2025-06-19T05:10:33.756Z",
+      "movie": {
+        "imdbID": "tt2087951",
+        "Title": "Stone Cold Steve Austin: The Bottom Line on the Most Popular Superstar of All Time",
+        "Year": "2011",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTc0NTQ0Njc3M15BMl5BanBnXkFtZTgwNTAzNjA2MDE@._V1_SX300.jpg"
+      }
+    },
+    {
+      "id": 1750311007523,
+      "userId": "1750307512215",
+      "movieId": "tt15600222",
+      "rating": 5,
+      "date": "2025-06-19T05:30:07.523Z",
+      "movie": {
+        "imdbID": "tt15600222",
+        "Title": "An Action Hero",
+        "Year": "2022",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BNWUzNzljNjMtYTdiZS00MWQ2LWFkZWItYTM0MzVmZGFhYzNjXkEyXkFqcGc@._V1_SX300.jpg"
+      }
+    }
+  ]
+}

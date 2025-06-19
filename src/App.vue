@@ -1,51 +1,43 @@
 <template>
-<header>
-    <router-link to="/">
-        <h1><span>your</span>movies</h1>
-    </router-link>
-</header>
-<main>
-    <router-view />
-</main>
+<div id="App">
+    <header>
+        <navBar />
+    </header>
+    <main style="padding-top: 80px;">
+        <router-view />
+    </main>
+</div>
 </template>
 
+<script>
+import navBar from './components/navBar.vue';
+export default {
+    name: "App",
+    components: {
+        navBar,
+    },
+}
+</script>
+
 <style lang="scss">
+//global css can be done here
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Fira Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 ::selection {
-  background-color: rgba(66, 184, 131, 0.5); // translucent #42B883
-  color: white; // optional: make selected text more readable
+    background-color: rgba(66, 184, 131, 0.5); // translucent #42B883
+    color: white; // optional: make selected text more readable
 }
 
 body {
-  background-color: #35495E;
+    background-color: #35495E;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
-
-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 16px;
-  background-color: #2C3D4E;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  color: white;
-  font-size: 28px;
-
-  span {
-    color: #42B883;
-  }
-}
-
 </style>
