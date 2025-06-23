@@ -50,6 +50,14 @@
       "password": "123456",
       "joinDate": "2025-06-19T04:31:52.215Z",
       "avatar": null
+    },
+    {
+      "id": "1750650555249",
+      "name": "kj ",
+      "email": "kuenzang@gmail.com",
+      "password": "123456",
+      "joinDate": "2025-06-23T03:49:15.249Z",
+      "avatar": null
     }
   ],
   "movies": [
@@ -68,7 +76,7 @@
       "date": "2025-06-01"
     },
     {
-      "id": 1750307693138,
+      "id": "1750307693138",
       "movieId": "tt0314524",
       "userId": "1750307512215",
       "user": "govinda",
@@ -77,7 +85,7 @@
       "date": "2025-06-19T04:34:53.138Z"
     },
     {
-      "id": 1750308892341,
+      "id": "1750308892341",
       "movieId": "tt2778780",
       "userId": "1750307512215",
       "user": "govinda",
@@ -86,7 +94,7 @@
       "date": "2025-06-19T04:54:52.341Z"
     },
     {
-      "id": 1750309049982,
+      "id": "1750309049982",
       "movieId": "tt0126169",
       "userId": "1750307512215",
       "user": "govinda",
@@ -95,7 +103,7 @@
       "date": "2025-06-19T04:57:29.982Z"
     },
     {
-      "id": 1750309833771,
+      "id": "1750309833771",
       "movieId": "tt2087951",
       "userId": "1750307512215",
       "user": "govinda",
@@ -104,13 +112,31 @@
       "date": "2025-06-19T05:10:33.771Z"
     },
     {
-      "id": 1750311007539,
+      "id": "1750311007539",
       "movieId": "tt15600222",
       "userId": "1750307512215",
       "user": "govinda",
       "rating": 5,
       "text": "awesome",
       "date": "2025-06-19T05:30:07.539Z"
+    },
+    {
+      "id": 1750650620272,
+      "movieId": "tt2963556",
+      "userId": "1750307512215",
+      "user": "govinda",
+      "rating": 5,
+      "text": "wqrwefwef",
+      "date": "2025-06-23T03:50:20.272Z"
+    },
+    {
+      "id": 1750650684268,
+      "movieId": "tt2963556",
+      "userId": "1750650555249",
+      "user": "kj ",
+      "rating": 5,
+      "text": "nice movie\n",
+      "date": "2025-06-23T03:51:24.268Z"
     }
   ],
   "ratings": [
@@ -174,7 +200,7 @@
       "date": "2025-06-17T09:16:07.456Z"
     },
     {
-      "id": 1750307693128,
+      "id": "1750307693128",
       "userId": "1750307512215",
       "movieId": "tt0314524",
       "rating": 5,
@@ -187,7 +213,7 @@
       }
     },
     {
-      "id": 1750308892327,
+      "id": "1750308892327",
       "userId": "1750307512215",
       "movieId": "tt2778780",
       "rating": 5,
@@ -200,7 +226,7 @@
       }
     },
     {
-      "id": 1750309049973,
+      "id": "1750309049973",
       "userId": "1750307512215",
       "movieId": "tt0126169",
       "rating": 4,
@@ -213,7 +239,7 @@
       }
     },
     {
-      "id": 1750309833756,
+      "id": "1750309833756",
       "userId": "1750307512215",
       "movieId": "tt2087951",
       "rating": 5,
@@ -226,7 +252,7 @@
       }
     },
     {
-      "id": 1750311007523,
+      "id": "1750311007523",
       "userId": "1750307512215",
       "movieId": "tt15600222",
       "rating": 5,
@@ -236,6 +262,45 @@
         "Title": "An Action Hero",
         "Year": "2022",
         "Poster": "https://m.media-amazon.com/images/M/MV5BNWUzNzljNjMtYTdiZS00MWQ2LWFkZWItYTM0MzVmZGFhYzNjXkEyXkFqcGc@._V1_SX300.jpg"
+      }
+    },
+    {
+      "id": 1750650620262,
+      "userId": "1750307512215",
+      "movieId": "tt2963556",
+      "rating": 5,
+      "date": "2025-06-23T03:50:20.262Z",
+      "movie": {
+        "imdbID": "tt2963556",
+        "Title": "WATAMOTE: No Matter How I Look at It, It's You Guys' Fault I'm Not Popular!",
+        "Year": "2013",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BM2NjYjcwYjMtOWFmMy00ZGY3LTg3YTMtZmZlOWY5YjI0ODU0XkEyXkFqcGc@._V1_SX300.jpg"
+      }
+    },
+    {
+      "id": 1750650684259,
+      "userId": "1750650555249",
+      "movieId": "tt2963556",
+      "rating": 5,
+      "date": "2025-06-23T03:51:24.259Z",
+      "movie": {
+        "imdbID": "tt2963556",
+        "Title": "WATAMOTE: No Matter How I Look at It, It's You Guys' Fault I'm Not Popular!",
+        "Year": "2013",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BM2NjYjcwYjMtOWFmMy00ZGY3LTg3YTMtZmZlOWY5YjI0ODU0XkEyXkFqcGc@._V1_SX300.jpg"
+      }
+    },
+    {
+      "id": 1750655524725,
+      "userId": "1750307512215",
+      "movieId": "tt2087951",
+      "rating": 4,
+      "date": "2025-06-23T05:12:04.725Z",
+      "movie": {
+        "imdbID": "tt2087951",
+        "Title": "Stone Cold Steve Austin: The Bottom Line on the Most Popular Superstar of All Time",
+        "Year": "2011",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTc0NTQ0Njc3M15BMl5BanBnXkFtZTgwNTAzNjA2MDE@._V1_SX300.jpg"
       }
     }
   ]

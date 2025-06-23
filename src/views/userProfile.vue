@@ -327,7 +327,7 @@ async function changePassword() {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
-  border: 3px solid #e50914;
+  border: 3px solid #0cd2ec;
 }
 .profile-details-view {
   text-align: center;
@@ -347,7 +347,7 @@ async function changePassword() {
   margin-bottom: 1.5rem;
 }
 .update-btn {
-  background: #e50914;
+  background: #0cd2ec;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -360,8 +360,8 @@ async function changePassword() {
 }
 .update-btn:hover,
 .update-btn:focus {
-  background: #b0060f;
-  box-shadow: 0 4px 24px #e50914aa;
+  background: #1a6cffcc;
+  box-shadow: 0 4px 24px #1a6cffcc;
   outline: none;
   transform: scale(1.04);
 }
@@ -394,7 +394,7 @@ async function changePassword() {
   transition: border 0.2s;
 }
 .profile-field input:focus {
-  border: 1.5px solid #e50914;
+  border: 1.5px solid #1a6cffcc;
 }
 .success-msg {
   color: #42b983;
@@ -414,7 +414,7 @@ async function changePassword() {
 }
 .profile-card button,
 .profile-card .base-btn {
-  background: #e50914;
+  background: #0cd2ec;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -429,8 +429,8 @@ async function changePassword() {
 .profile-card .base-btn:hover,
 .profile-card button:focus,
 .profile-card .base-btn:focus {
-  background: #b0060f;
-  box-shadow: 0 4px 24px #e50914aa;
+  background: #1a6cffcc;
+  box-shadow: 0 4px 24px #1a6cffcc;
   outline: none;
   transform: scale(1.04);
 }
@@ -480,7 +480,7 @@ async function changePassword() {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 .user-rating {
-  color: #e50914;
+  color: #0cd2ec;
   font-weight: 600;
 }
 .user-review {

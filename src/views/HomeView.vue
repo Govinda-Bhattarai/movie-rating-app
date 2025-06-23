@@ -145,13 +145,16 @@ function goToMovie(id) {
   min-height: 100vh;
   color: #fff;
 }
+
+/* HERO BANNER STYLING */
 .hero-banner {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 100vh; /* Full screen height */
   overflow: hidden;
   margin-bottom: 2rem;
 }
+
 .hero-img {
   width: 100%;
   height: 100%;
@@ -159,11 +162,13 @@ function goToMovie(id) {
   filter: brightness(0.5);
   transition: filter 0.4s, transform 0.4s;
 }
+
 .hero-banner:hover .hero-img,
 .hero-banner:focus-within .hero-img {
   filter: brightness(0.7) blur(1px);
   transform: scale(1.03);
 }
+
 .hero-overlay {
   position: absolute;
   top: 0;
@@ -174,25 +179,33 @@ function goToMovie(id) {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 2rem 4rem;
+  padding: 4rem;
   z-index: 2;
-  transition: background 0.3s;
+  background: linear-gradient(to top, rgba(24, 24, 24, 0.9) 0%, rgba(24, 24, 24, 0.1) 100%);
 }
-.hero-banner:hover .hero-overlay,
-.hero-banner:focus-within .hero-overlay {
-  background: rgba(24, 24, 24, 0.15);
-}
-.hero-title,
-.hero-desc {
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
   transition: color 0.2s, text-shadow 0.2s;
 }
+
+.hero-desc {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: #ddd;
+}
+
 .hero-banner:hover .hero-title,
 .hero-banner:focus-within .hero-title {
-  color: #e50914;
+  color: #0cd2ec;
   text-shadow: 0 2px 16px #000;
 }
+
 .hero-btn {
-  background: #e50914;
+  background: #0cd2ec;
   color: #fff;
   font-size: 1.1rem;
   padding: 0.75rem 2rem;
@@ -204,11 +217,13 @@ function goToMovie(id) {
 }
 .hero-btn:hover,
 .hero-btn:focus {
-  background: #b0060f;
-  box-shadow: 0 4px 24px #e50914aa;
+  background: #1a6cffcc;
+  box-shadow: 0 4px 24px #1a6cffcc;
   outline: none;
   transform: scale(1.04);
 }
+
+/* MOVIE SECTIONS */
 .movie-section {
   padding: 0 2rem;
 }
@@ -222,5 +237,27 @@ function goToMovie(id) {
   gap: 1.5rem;
   overflow-x: auto;
   padding-bottom: 1rem;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+  }
+
+  .hero-overlay {
+    padding: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-btn {
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+  }
 }
 </style>

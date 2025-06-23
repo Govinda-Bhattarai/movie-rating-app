@@ -68,7 +68,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  border-bottom: 2px solid #e50914;
+  border-bottom: 2px solid #0cd2ec;
   z-index: 1000;
   flex-wrap: wrap;
 }
@@ -81,7 +81,7 @@ nav {
 }
 
 .logo h1 span {
-  color: #e50914;
+  color: #0cd2ec;
 }
 
 .nav-center {
@@ -103,7 +103,7 @@ nav {
 }
 
 .nav-search:focus {
-  box-shadow: 0 0 0 2px #e50914;
+  box-shadow: 0 0 0 2px #0cd2ec;
 }
 
 .nav-right {
@@ -131,7 +131,7 @@ nav {
 }
 
 .nav-right a.router-link-exact-active {
-  background-color: #e50914;
+  background-color: #0cd2ec;
   color: #fff;
 }
 
@@ -139,7 +139,7 @@ nav {
 .nav-right button:hover,
 .nav-right a:focus,
 .nav-right button:focus {
-  background-color: #e50914;
+  background-color: #0cd2ec;
   color: #fff;
   outline: none;
 }
