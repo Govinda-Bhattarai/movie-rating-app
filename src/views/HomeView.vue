@@ -1,36 +1,43 @@
 <template>
   <div class="streaming-home">
-    <div class="hero-banner">
-      <img
-        class="hero-img"
-        :src="
-          heroMovie && heroMovie.Poster && heroMovie.Poster !== 'N/A'
-            ? heroMovie.Poster
-            : 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1500&q=80'
-        "
-        :alt="heroMovie ? heroMovie.Title : 'Featured'"
-      />
-      <div class="hero-overlay">
-        <h1 class="hero-title">
-          {{ heroMovie ? heroMovie.Title : "Welcome to YourMovies" }}
-        </h1>
-        <p class="hero-desc">
-          <template v-if="heroMovie">
-            {{ heroMovie.Year
-            }}<span v-if="heroMovie.Type"> • {{ heroMovie.Type }}</span>
-          </template>
-          <template v-else>
-            Stream, rate, and review your favorite movies!
-          </template>
-        </p>
-        <BaseButton
-          v-if="!userStore.isAuthenticated"
-          class="hero-btn"
-          @click="$router.push('/register')"
-          >Join Now</BaseButton
-        >
-      </div>
+   <div
+  class="hero-banner"
+  @click="heroMovie && goToMovie(heroMovie.imdbID)"
+  style="cursor: pointer"
+>
+  <img
+    :class="{ 'hero-img': true, 'fade-out': isFading }"
+    :src="heroMovieSrc"
+    :alt="heroMovie ? heroMovie.Title : 'Featured'"
+  />
+  <div class="hero-overlay">
+    <h1 class="hero-title">
+      {{ heroMovie ? heroMovie.Title : "Welcome to YourMovies" }}
+    </h1>
+    <p class="hero-desc">
+      <template v-if="heroMovie">
+        {{ heroMovie.Year
+        }}<span v-if="heroMovie.Type"> • {{ heroMovie.Type }}</span>
+      </template>
+      <template v-else>
+        Stream, rate, and review your favorite movies!
+      </template>
+    </p>
+    <BaseButton
+      v-if="!userStore.isAuthenticated"
+      class="hero-btn"
+      @click.stop="$router.push('/register')"
+    >
+      Join Now
+    </BaseButton>
+
+    <div class="hero-controls">
+      <button @click.stop="prevHero" class="nav-btn">⏪</button>
+      <button @click.stop="nextHero" class="nav-btn">⏩</button>
     </div>
+  </div>
+</div>
+
     <section class="movie-section">
       <h2>{{ route.query.q ? "Search Results" : "Popular Movies" }}</h2>
       <div class="movie-row">
@@ -59,12 +66,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch, onUnmounted } from "vue";
 import MovieCard from "../components/MovieCard.vue";
 import BaseButton from "../components/BaseButton.vue";
 import { fetchMovies } from "../services/api";
 import { useRouter, useRoute } from "vue-router";
 import { useUserStore } from "../stores/user";
+import { ref, computed, onMounted, watch, onUnmounted } from "vue";
+
 
 const movies = ref([]);
 const router = useRouter();
@@ -82,6 +90,36 @@ const genres = [
   { label: "Sci-Fi", query: "sci-fi" },
 ];
 const genreMovies = ref({});
+const isFading = ref(false);
+
+const heroMovieSrc = computed(() => {
+  if (heroMovie.value && heroMovie.value.Poster && heroMovie.value.Poster !== "N/A") {
+    return heroMovie.value.Poster;
+  }
+  return "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1500&q=80";
+});
+
+function fadeToNextMovie(newIndex) {
+  isFading.value = true;
+  setTimeout(() => {
+    heroIndex.value = newIndex % movies.value.length;
+    setHeroMovieByIndex(heroIndex.value);
+    isFading.value = false;
+  }, 300);
+}
+
+function nextHero() {
+  clearInterval(intervalId);
+  fadeToNextMovie(heroIndex.value + 1);
+  setupHeroRotation();
+}
+
+function prevHero() {
+  clearInterval(intervalId);
+  fadeToNextMovie((heroIndex.value - 1 + movies.value.length) % movies.value.length);
+  setupHeroRotation();
+}
+
 
 function setHeroMovieByIndex(idx) {
   if (movies.value && movies.value.length > 0) {
@@ -96,7 +134,9 @@ async function loadMovies() {
   if (query) {
     movies.value = await fetchMovies(query);
   } else {
-    movies.value = await fetchMovies("popular");
+    // movies.value = await fetchMovies("2024");
+    const currentYear = new Date().getFullYear(); //Get current year like "2025"
+    movies.value = await fetchMovies(currentYear.toString()); // Search movies by year
   }
   heroIndex.value = 0;
   setHeroMovieByIndex(heroIndex.value);
@@ -109,7 +149,7 @@ function setupHeroRotation() {
   intervalId = setInterval(() => {
     heroIndex.value = (heroIndex.value + 1) % movies.value.length;
     setHeroMovieByIndex(heroIndex.value);
-  }, 5000);
+  }, 2000);
 }
 
 async function loadGenreMovies() {
@@ -150,16 +190,16 @@ function goToMovie(id) {
 .hero-banner {
   position: relative;
   width: 100%;
-  height: 100vh; /* Full screen height */
+  height: 70vh; /* Full screen height */
   overflow: hidden;
   margin-bottom: 2rem;
 }
 
 .hero-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.5);
+  height: auto;
+  object-fit: contain;
+  /* filter: brightness(0.5); */
   transition: filter 0.4s, transform 0.4s;
 }
 
@@ -181,7 +221,11 @@ function goToMovie(id) {
   align-items: flex-start;
   padding: 4rem;
   z-index: 2;
-  background: linear-gradient(to top, rgba(24, 24, 24, 0.9) 0%, rgba(24, 24, 24, 0.1) 100%);
+  background: linear-gradient(
+    to top,
+    rgba(24, 24, 24, 0.9) 0%,
+    rgba(24, 24, 24, 0.1) 100%
+  );
 }
 
 .hero-title {
@@ -260,4 +304,27 @@ function goToMovie(id) {
     padding: 0.5rem 1.5rem;
   }
 }
+.hero-controls {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  gap: 1rem;
+  z-index: 3;
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
 </style>
