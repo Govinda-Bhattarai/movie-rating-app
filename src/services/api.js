@@ -1,13 +1,14 @@
-// src/services/api.js
-import env from "@/env";
-
 const API_URL = "http://localhost:3000";
 const OMDB_API_URL = "https://www.omdbapi.com";
+
+// ✅ Correctly get the API key from environment variable
+const apiKey = process.env.VUE_APP_API_KEY;
+console.log("OMDB API KEY:", apiKey); // Should print '21785ab2' if .env is correct
 
 export async function fetchMovies(query) {
   try {
     const res = await fetch(
-      `${OMDB_API_URL}/?apikey=${env.apikey}&s=${encodeURIComponent(query)}`
+      `${OMDB_API_URL}/?apikey=${apiKey}&s=${encodeURIComponent(query)}`
     );
     const data = await res.json();
     return data.Search || [];
@@ -20,7 +21,7 @@ export async function fetchMovies(query) {
 export async function fetchMovieDetails(id) {
   try {
     const res = await fetch(
-      `${OMDB_API_URL}/?apikey=${env.apikey}&i=${id}&plot=full`
+      `${OMDB_API_URL}/?apikey=${apiKey}&i=${id}&plot=full`
     );
     const data = await res.json();
     return data;
@@ -36,7 +37,6 @@ export async function fetchCommentsByMovieId(movieId) {
     if (!response.ok) throw new Error("Failed to fetch comments");
     const reviews = await response.json();
 
-    // Get user details for each review
     const reviewsWithUserDetails = await Promise.all(
       reviews.map(async (review) => {
         try {
@@ -72,16 +72,12 @@ export async function submitMovieRating({
   userName,
 }) {
   try {
-    // First, get the movie details from OMDB
     const movieDetails = await fetchMovieDetails(movieId);
     if (!movieDetails) throw new Error("Movie not found");
 
-    // Submit the rating
     const ratingResponse = await fetch(`${API_URL}/ratings`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         id: Date.now(),
         userId,
@@ -101,15 +97,13 @@ export async function submitMovieRating({
       const errorData = await ratingResponse.json().catch(() => ({}));
       throw new Error(errorData.message || "Failed to submit rating");
     }
+
     const ratingData = await ratingResponse.json();
 
-    // If there's a comment, submit it as a review
     if (comment && comment.trim()) {
       const reviewResponse = await fetch(`${API_URL}/reviews`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           id: Date.now(),
           movieId,
@@ -125,6 +119,7 @@ export async function submitMovieRating({
         const errorData = await reviewResponse.json().catch(() => ({}));
         throw new Error(errorData.message || "Failed to submit review");
       }
+
       await reviewResponse.json();
     }
 
@@ -149,12 +144,10 @@ export async function getRatedMoviesByUser(userId) {
 
 export async function getPopularMovies() {
   try {
-    // Get all ratings and calculate average rating for each movie
     const response = await fetch(`${API_URL}/ratings`);
     if (!response.ok) throw new Error("Failed to fetch ratings");
     const ratings = await response.json();
 
-    // Group ratings by movie and calculate average
     const movieRatings = ratings.reduce((acc, rating) => {
       if (!rating.movie) return acc;
       const movieId = rating.movie.imdbID;
@@ -170,31 +163,15 @@ export async function getPopularMovies() {
       return acc;
     }, {});
 
-    // Convert to array and sort by average rating
     return Object.values(movieRatings)
       .map((movie) => ({
         ...movie,
         averageRating: movie.totalRating / movie.count,
       }))
       .sort((a, b) => b.averageRating - a.averageRating)
-      .slice(0, 6); // Get top 6 movies
+      .slice(0, 6);
   } catch (error) {
     console.error("Error fetching popular movies:", error);
     return [];
   }
 }
-
-// src/api.js
-
-const apiKey = process.env.VUE_APP_API_KEY;
-
-
-// Example usage: (you can customize this as per your API)
-export async function fetchData(endpoint) {
-  const response = await fetch(`https://example.com/api/${endpoint}?key=${apiKey}`);
-  const data = await response.json();
-  return data;
-}
-
-// Export the key if needed elsewhere
-export { apiKey };
