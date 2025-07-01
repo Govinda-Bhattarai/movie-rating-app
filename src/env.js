@@ -1,4 +1,3 @@
-export default{
-    apikey:"21785ab2"
-
-}
+// export default {
+//   apikey: import.meta.env.VITE_API_KEY
+// }

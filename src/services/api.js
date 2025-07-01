@@ -183,3 +183,18 @@ export async function getPopularMovies() {
     return [];
   }
 }
+
+// src/api.js
+
+const apiKey = process.env.VUE_APP_API_KEY;
+
+
+// Example usage: (you can customize this as per your API)
+export async function fetchData(endpoint) {
+  const response = await fetch(`https://example.com/api/${endpoint}?key=${apiKey}`);
+  const data = await response.json();
+  return data;
+}
+
+// Export the key if needed elsewhere
+export { apiKey };
