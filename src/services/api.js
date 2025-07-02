@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000";
+const API_URL = "http://192.168.1.27:3000";
 const OMDB_API_URL = "https://www.omdbapi.com";
 
 // ✅ Correctly get the API key from environment variable
