@@ -1,5 +1,5 @@
 // services/auth.js
-const API_URL = "http://localhost:3000";
+const API_URL = "http://192.168.1.27:3000";
 
 export async function loginUser({ email, password }) {
   try {
